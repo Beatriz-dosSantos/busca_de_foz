@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://db7or7ftp85lx"]
+
+[ext_resource type="Script" uid="uid://dtvc2y4uhmefn" path="res://cenas/tela_game_over.gd" id="1_wkr2x"]
+[ext_resource type="Texture2D" uid="uid://cwndh8cw08k" path="res://cenas/game overr.png" id="2_r5c0j"]
+[ext_resource type="Texture2D" uid="uid://cyntqegqiqfkm" path="res://assets/chorume/1.png" id="3_u0jg6"]
+[ext_resource type="Texture2D" uid="uid://xncomydrvqdj" path="res://assets/chorume/2.png" id="4_a0f60"]
+[ext_resource type="Texture2D" uid="uid://cj3764b5stqp2" path="res://assets/chorume/3.png" id="5_cvvg0"]
+[ext_resource type="Texture2D" uid="uid://hfxgohs1hg2" path="res://assets/chorume/4.png" id="6_45lbe"]
+[ext_resource type="Texture2D" uid="uid://jme5bxe1t3qu" path="res://assets/chorume/5.png" id="7_4b457"]
+[ext_resource type="Texture2D" uid="uid://dkvmjqlrjksm4" path="res://assets/chorume/6.png" id="8_08yrh"]
+[ext_resource type="Texture2D" uid="uid://b3nysav2if2tw" path="res://assets/chorume/7.png" id="9_v3dpj"]
+[ext_resource type="Texture2D" uid="uid://buplxajmlngrv" path="res://assets/chorume/8.png" id="10_4sbr8"]
+[ext_resource type="Texture2D" uid="uid://bauiy84mrgrgg" path="res://assets/chorume/9.png" id="11_ge54f"]
+[ext_resource type="Texture2D" uid="uid://c3rtn6i7gh121" path="res://assets/chorume/10.png" id="12_25wek"]
+[ext_resource type="FontFile" uid="uid://b1u8sqsvpx4l1" path="res://menu/joystix monospace.otf" id="13_qkmxq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v6q0l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_u0jg6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a0f60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cvvg0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_45lbe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4b457")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_08yrh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_v3dpj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4sbr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ge54f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_25wek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ge54f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4sbr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_v3dpj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_08yrh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4b457")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_45lbe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cvvg0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a0f60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u0jg6")
+}],
+"loop": true,
+"name": &"chorum",
+"speed": 7.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkr2x"]
+bg_color = Color(0.14622876, 0.14622876, 0.14622873, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5c0j"]
+bg_color = Color(0.08078333, 0.08078336, 0.08078327, 1)
+
+[node name="TelaGameOver" type="CanvasLayer" unique_id=1561170948 groups=["telasucesso"]]
+process_mode = 3
+script = ExtResource("1_wkr2x")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=95284564]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=296083419]
+position = Vector2(578, 326)
+texture = ExtResource("2_r5c0j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=637191569]
+position = Vector2(566, 551)
+sprite_frames = SubResource("SpriteFrames_v6q0l")
+animation = &"chorum"
+autoplay = "chorum"
+
+[node name="tentar" type="Button" parent="." unique_id=1262220685]
+offset_left = 327.0
+offset_top = 367.0
+offset_right = 547.0
+offset_bottom = 413.0
+theme_override_fonts/font = ExtResource("13_qkmxq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wkr2x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r5c0j")
+text = "Tentar novamente"
+
+[node name="sair" type="Button" parent="." unique_id=2034424131]
+offset_left = 619.0
+offset_top = 366.0
+offset_right = 770.0
+offset_bottom = 412.0
+theme_override_fonts/font = ExtResource("13_qkmxq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wkr2x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r5c0j")
+text = "sair"
+
+[connection signal="pressed" from="tentar" to="." method="_on_tentar_pressed"]
+[connection signal="pressed" from="sair" to="." method="_on_sair_pressed"]

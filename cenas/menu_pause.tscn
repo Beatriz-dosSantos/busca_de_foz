@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bjsijjlhw3vfu"]
+
+[ext_resource type="Script" uid="uid://bkyfe6dpwb45r" path="res://cenas/menu_pause.gd" id="1_xax3q"]
+[ext_resource type="FontFile" uid="uid://b1u8sqsvpx4l1" path="res://menu/joystix monospace.otf" id="2_ecnfh"]
+
+[node name="MenuPause" type="CanvasLayer" unique_id=1890855192]
+process_mode = 3
+script = ExtResource("1_xax3q")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=712051094]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.4117647)
+
+[node name="Button" type="Button" parent="." unique_id=172304888]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -15.5
+offset_right = 57.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ecnfh")
+text = "voltar ao jogo"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
