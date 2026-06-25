@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bkjitxt73wgro" path="res://assets/ventlador.png" id="2_106ap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rvigx"]
-size = Vector2(25, 37.25)
+size = Vector2(80, 100)
 
 [node name="item" type="Area2D" unique_id=438700912]
 script = ExtResource("1_io3oc")

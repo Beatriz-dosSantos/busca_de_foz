@@ -1,0 +1,96 @@
+[gd_scene load_steps=15 format=3 uid="uid://fozbonecotsc1"]
+
+[ext_resource type="Script" uid="uid://fozbonecogd1" path="res://cenas/boneco_neve.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://fo0boneco01a" path="res://assets/gerados/boneco_neve.png" id="2_tex"]
+[ext_resource type="PackedScene" uid="uid://fozprojfloc1" path="res://cenas/projetil_floco.tscn" id="3_proj"]
+[ext_resource type="PackedScene" uid="uid://fozitemfloc1" path="res://cenas/item_floco.tscn" id="4_item"]
+
+[sub_resource type="AtlasTexture" id="A0"]
+atlas = ExtResource("2_tex")
+region = Rect2(0, 0, 80, 96)
+
+[sub_resource type="AtlasTexture" id="A1"]
+atlas = ExtResource("2_tex")
+region = Rect2(80, 0, 80, 96)
+
+[sub_resource type="AtlasTexture" id="A2"]
+atlas = ExtResource("2_tex")
+region = Rect2(160, 0, 80, 96)
+
+[sub_resource type="AtlasTexture" id="A3"]
+atlas = ExtResource("2_tex")
+region = Rect2(240, 0, 80, 96)
+
+[sub_resource type="AtlasTexture" id="A4"]
+atlas = ExtResource("2_tex")
+region = Rect2(320, 0, 80, 96)
+
+[sub_resource type="AtlasTexture" id="A5"]
+atlas = ExtResource("2_tex")
+region = Rect2(400, 0, 80, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_boneco"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("A0")
+}, {
+"duration": 1.0,
+"texture": SubResource("A1")
+}, {
+"duration": 1.0,
+"texture": SubResource("A2")
+}, {
+"duration": 1.0,
+"texture": SubResource("A3")
+}, {
+"duration": 1.0,
+"texture": SubResource("A4")
+}, {
+"duration": 1.0,
+"texture": SubResource("A5")
+}],
+"loop": true,
+"name": &"movimento",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boneco"]
+size = Vector2(48, 86)
+
+[sub_resource type="StyleBoxFlat" id="SB_bg"]
+
+[sub_resource type="StyleBoxFlat" id="SB_fill"]
+bg_color = Color(0.45, 0.75, 0.95, 1)
+
+[node name="boneco_neve" type="CharacterBody2D" groups=["inimigo"]]
+script = ExtResource("1_script")
+projetil_cena = ExtResource("3_proj")
+item_cena = ExtResource("4_item")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_boneco")
+animation = &"movimento"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_boneco")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.2
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -4)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -38.0
+offset_top = -64.0
+offset_right = 38.0
+offset_bottom = -58.0
+theme_override_styles/background = SubResource("SB_bg")
+theme_override_styles/fill = SubResource("SB_fill")
+max_value = 120.0
+show_percentage = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

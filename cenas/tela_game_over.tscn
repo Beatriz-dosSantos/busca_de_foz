@@ -85,7 +85,7 @@ bg_color = Color(0.14622876, 0.14622876, 0.14622873, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5c0j"]
 bg_color = Color(0.08078333, 0.08078336, 0.08078327, 1)
 
-[node name="TelaGameOver" type="CanvasLayer" unique_id=1561170948 groups=["telasucesso"]]
+[node name="TelaGameOver" type="CanvasLayer" unique_id=1561170948]
 process_mode = 3
 script = ExtResource("1_wkr2x")
 

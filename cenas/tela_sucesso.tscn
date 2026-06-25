@@ -103,11 +103,23 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.2901961, 0.6, 0.7490196, 1)
 
+[node name="botaoProximo" type="Button" parent="ColorRect" unique_id=651089051]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 427.0
+offset_right = 560.0
+offset_bottom = 469.0
+theme_override_fonts/font = ExtResource("16_ytplg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8cepa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xilaq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hm8gk")
+text = "Próxima fase"
+
 [node name="botaoMenu" type="Button" parent="ColorRect" unique_id=651089052]
 layout_mode = 0
-offset_left = 490.0
+offset_left = 600.0
 offset_top = 427.0
-offset_right = 647.0
+offset_right = 757.0
 offset_bottom = 469.0
 theme_override_fonts/font = ExtResource("16_ytplg")
 theme_override_styles/normal = SubResource("StyleBoxFlat_8cepa")
@@ -170,4 +182,5 @@ theme_override_fonts/font = ExtResource("16_ytplg")
 theme_override_font_sizes/font_size = 22
 text = "próxima fase em andamento..."
 
+[connection signal="pressed" from="ColorRect/botaoProximo" to="." method="_on_botao_proximo_pressed"]
 [connection signal="pressed" from="ColorRect/botaoMenu" to="." method="_on_botao_menu_pressed"]

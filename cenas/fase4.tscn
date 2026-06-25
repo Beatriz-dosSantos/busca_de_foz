@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://fo0fase4tsc1"]
+
+[ext_resource type="Texture2D" uid="uid://iwap0nuxwic3" path="res://assets/praia/1.png" id="6_f28hd"]
+[ext_resource type="Texture2D" uid="uid://drogj5esc3vfo" path="res://assets/praia/2.png" id="7_yc3xt"]
+[ext_resource type="Texture2D" uid="uid://cxoxaajbhfakn" path="res://assets/praia/3.png" id="8_6aljc"]
+[ext_resource type="Texture2D" uid="uid://cv3uk6t2q5xjy" path="res://assets/praia/4.png" id="9_eejex"]
+[ext_resource type="Texture2D" uid="uid://bya0tol6kvlk3" path="res://assets/background1/1.png" id="bg1"]
+[ext_resource type="PackedScene" uid="uid://fozsoltsc1" path="res://cenas/sol.tscn" id="boss_s"]
+[ext_resource type="PackedScene" uid="uid://bjsijjlhw3vfu" path="res://cenas/menu_pause.tscn" id="pause_s"]
+[ext_resource type="PackedScene" uid="uid://dxwufmknirtk2" path="res://cenas/player.tscn" id="player_s"]
+[ext_resource type="PackedScene" uid="uid://cmwb72aw3owxq" path="res://cenas/tela_sucesso.tscn" id="suc_s"]
+
+[sub_resource type="RectangleShape2D" id="rect_chao"]
+size = Vector2(1600, 240)
+
+[sub_resource type="RectangleShape2D" id="rect_parede"]
+size = Vector2(60, 1000)
+
+[node name="fase4" type="Node2D" unique_id=178339254]
+
+[node name="Ceu" type="Polygon2D" parent="." unique_id=229433131]
+color = Color(0.45, 0.7, 0.95, 1)
+polygon = PackedVector2Array(-260, -300, 1320, -300, 1320, 360, -260, 360)
+
+[node name="Fundo" type="Node2D" parent="." unique_id=286157032]
+visible = false
+
+[node name="Bg1_0" type="Sprite2D" parent="Fundo" unique_id=1339319387]
+position = Vector2(-260, 36)
+texture = ExtResource("bg1")
+centered = false
+
+[node name="Bg1_1" type="Sprite2D" parent="Fundo" unique_id=1614359328]
+position = Vector2(316, 36)
+texture = ExtResource("bg1")
+centered = false
+
+[node name="Bg1_2" type="Sprite2D" parent="Fundo" unique_id=1791522067]
+position = Vector2(892, 36)
+texture = ExtResource("bg1")
+centered = false
+
+[node name="Bg1_3" type="Sprite2D" parent="Fundo" unique_id=1937797430]
+position = Vector2(1468, 36)
+texture = ExtResource("bg1")
+centered = false
+
+[node name="ChaoVisual" type="Polygon2D" parent="." unique_id=939026765]
+color = Color(0.86, 0.78, 0.55, 1)
+polygon = PackedVector2Array(-260, 360, 1320, 360, 1320, 620, -260, 620)
+
+[node name="Chao" type="StaticBody2D" parent="." unique_id=1358668105]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chao" unique_id=1729234329]
+position = Vector2(530, 480)
+shape = SubResource("rect_chao")
+
+[node name="ParedeEsq" type="StaticBody2D" parent="." unique_id=1725386920]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeEsq" unique_id=293423024]
+position = Vector2(-160, 100)
+shape = SubResource("rect_parede")
+
+[node name="ParedeDir" type="StaticBody2D" parent="." unique_id=790186263]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeDir" unique_id=170202844]
+position = Vector2(1250, 100)
+shape = SubResource("rect_parede")
+
+[node name="player" parent="." unique_id=471922696 instance=ExtResource("player_s")]
+position = Vector2(132, 351)
+
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=901596936]
+position = Vector2(3, -126)
+zoom = Vector2(2, 2)
+limit_left = -260
+limit_top = -300
+limit_right = 1320
+limit_bottom = 620
+position_smoothing_enabled = true
+
+[node name="sol" parent="." unique_id=499405022 instance=ExtResource("boss_s")]
+position = Vector2(464, 282)
+amplitude_flutua = 14.0
+
+[node name="MenuPause" parent="." unique_id=380484122 instance=ExtResource("pause_s")]
+
+[node name="TelaSucesso" parent="." unique_id=1367447327 groups=["telasucesso"] instance=ExtResource("suc_s")]
+visible = false
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=919975150]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=2022020912]
+position = Vector2(-20, -40)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=59282112]
+position = Vector2(-151, 81)
+texture = ExtResource("6_f28hd")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1200891341]
+position = Vector2(-23, -13)
+motion_scale = Vector2(2.5, 1)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=994247755]
+position = Vector2(-151, 81)
+texture = ExtResource("7_yc3xt")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1142858396]
+position = Vector2(-27, 10)
+motion_scale = Vector2(1.5, 1)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3" unique_id=1827573793]
+position = Vector2(-151, 81)
+texture = ExtResource("8_6aljc")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1689297002]
+position = Vector2(-20, 5)
+motion_scale = Vector2(2, 1)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4" unique_id=223223686]
+position = Vector2(-151, 81)
+texture = ExtResource("9_eejex")
+centered = false
