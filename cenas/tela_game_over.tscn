@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://db7or7ftp85lx"]
 
 [ext_resource type="Script" uid="uid://dtvc2y4uhmefn" path="res://cenas/tela_game_over.gd" id="1_wkr2x"]
-[ext_resource type="Texture2D" uid="uid://cwndh8cw08k" path="res://cenas/game overr.png" id="2_r5c0j"]
+[ext_resource type="Texture2D" uid="uid://d4fby56x2b040" path="res://assets/telas/game-over1.png" id="2_wkr2x"]
 [ext_resource type="Texture2D" uid="uid://cyntqegqiqfkm" path="res://assets/chorume/1.png" id="3_u0jg6"]
 [ext_resource type="Texture2D" uid="uid://xncomydrvqdj" path="res://assets/chorume/2.png" id="4_a0f60"]
 [ext_resource type="Texture2D" uid="uid://cj3764b5stqp2" path="res://assets/chorume/3.png" id="5_cvvg0"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bauiy84mrgrgg" path="res://assets/chorume/9.png" id="11_ge54f"]
 [ext_resource type="Texture2D" uid="uid://c3rtn6i7gh121" path="res://assets/chorume/10.png" id="12_25wek"]
 [ext_resource type="FontFile" uid="uid://b1u8sqsvpx4l1" path="res://menu/joystix monospace.otf" id="13_qkmxq"]
+[ext_resource type="AudioStream" uid="uid://c5m7awcwl30r" path="res://assets/som/game over.mp3" id="14_r5c0j"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v6q0l"]
 animations = [{
@@ -99,7 +100,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=296083419]
 position = Vector2(578, 326)
-texture = ExtResource("2_r5c0j")
+texture = ExtResource("2_wkr2x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=637191569]
 position = Vector2(566, 551)
@@ -126,6 +127,11 @@ theme_override_fonts/font = ExtResource("13_qkmxq")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wkr2x")
 theme_override_styles/hover = SubResource("StyleBoxFlat_r5c0j")
 text = "sair"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=434929219]
+stream = ExtResource("14_r5c0j")
+autoplay = true
+bus = &"Musica"
 
 [connection signal="pressed" from="tentar" to="." method="_on_tentar_pressed"]
 [connection signal="pressed" from="sair" to="." method="_on_sair_pressed"]

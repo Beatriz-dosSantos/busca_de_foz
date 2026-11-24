@@ -4,6 +4,7 @@ func _ready():
 	hide()
 
 func aparecer():
+	AjusteTela.usar_modo_fixo()
 	show()
 	get_tree().paused = true
 

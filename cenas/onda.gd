@@ -2,7 +2,7 @@ extends Area2D
 
 var SPEED = 300
 var vel : float = 1.0
-var dano : int = 10  
+var dano : int = 8  
 
 func _ready():
 	$AnimatedSprite2D.play("aonda")

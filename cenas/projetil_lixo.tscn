@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dqf4qdoe0korh"]
+
+[ext_resource type="Script" uid="uid://cbhwnfnx5asvf" path="res://cenas/projetil_lixo.gd" id="1_j4buw"]
+[ext_resource type="Texture2D" uid="uid://bgi0pgd0yfkw2" path="res://assets/lixo/sprite_sheet.png" id="3_wjayw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucxru"]
+atlas = ExtResource("3_wjayw")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qaiqn"]
+atlas = ExtResource("3_wjayw")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn4ft"]
+atlas = ExtResource("3_wjayw")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vsox"]
+atlas = ExtResource("3_wjayw")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4vp2b"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ucxru")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_qaiqn")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_vn4ft")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_0vsox")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j4buw"]
+radius = 10.112359
+
+[node name="Projetilata" type="CharacterBody2D" unique_id=779170684]
+script = ExtResource("1_j4buw")
+dano = 10
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=297762538]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_4vp2b")
+autoplay = "default"
+frame = 2
+frame_progress = 0.5192114
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=750868481]
+scale = Vector2(0.89, 0.89)
+shape = SubResource("CircleShape2D_j4buw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=409121278]
+position = Vector2(526, -239)
+rect = Rect2(-540, 229, 29, 20)

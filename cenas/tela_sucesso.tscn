@@ -1,21 +1,49 @@
 [gd_scene format=3 uid="uid://cmwb72aw3owxq"]
 
 [ext_resource type="Script" uid="uid://dvlbnnbmwsn3j" path="res://cenas/tela_sucesso.gd" id="1_q38wc"]
-[ext_resource type="Texture2D" uid="uid://cwt7q8ake64nt" path="res://assets/load/1.png" id="2_8cepa"]
-[ext_resource type="Texture2D" uid="uid://cm6rtaqdfny7j" path="res://assets/load/2.png" id="3_xilaq"]
-[ext_resource type="Texture2D" uid="uid://btbw2a0uv7023" path="res://assets/load/3.png" id="4_hm8gk"]
-[ext_resource type="Texture2D" uid="uid://s15hfq2dbefr" path="res://assets/load/4.png" id="5_i74ts"]
-[ext_resource type="Texture2D" uid="uid://dddshiwst2v2y" path="res://assets/load/5.png" id="6_eq3wk"]
-[ext_resource type="Texture2D" uid="uid://tuu2wjliltsq" path="res://assets/load/6.png" id="7_3a6fh"]
-[ext_resource type="Texture2D" uid="uid://bkku0pj6fe8i1" path="res://assets/load/7.png" id="8_cy24k"]
-[ext_resource type="Texture2D" uid="uid://b86o6su2b8op1" path="res://assets/load/8.png" id="9_llv81"]
-[ext_resource type="Texture2D" uid="uid://bigkatqfmbwt3" path="res://assets/load/9.png" id="10_0blxr"]
-[ext_resource type="Texture2D" uid="uid://wp5gtq4avgwe" path="res://assets/load/10.png" id="11_y8hhg"]
-[ext_resource type="Texture2D" uid="uid://0jmr8ymt85wo" path="res://assets/load/11.png" id="12_ejvjp"]
-[ext_resource type="Texture2D" uid="uid://bo4ydpyagvrww" path="res://assets/load/12.png" id="13_u4gtx"]
-[ext_resource type="Texture2D" uid="uid://bl2a3ff8rqfbh" path="res://assets/load/13.png" id="14_y58ry"]
-[ext_resource type="Texture2D" uid="uid://bwm6hdsg7c3ac" path="res://assets/load/14.png" id="15_533wb"]
+[ext_resource type="Texture2D" uid="uid://bpe81cy15mjcd" path="res://assets/Slime blue.png" id="3_w5vo1"]
+[ext_resource type="AudioStream" uid="uid://cebxvgqxsvxh1" path="res://assets/som/happy.mp3" id="12_7wems"]
 [ext_resource type="FontFile" uid="uid://b1u8sqsvpx4l1" path="res://menu/joystix monospace.otf" id="16_ytplg"]
+[ext_resource type="Texture2D" uid="uid://boyh6efvq78vn" path="res://assets/intro/mare/1.png" id="mar_1"]
+[ext_resource type="Texture2D" uid="uid://dmgxskibt1wkb" path="res://assets/intro/mare/2.png" id="mar_2"]
+[ext_resource type="Texture2D" uid="uid://drqn6ybcvyu6p" path="res://assets/intro/mare/3.png" id="mar_3"]
+[ext_resource type="Texture2D" uid="uid://bgxnomhf6gaea" path="res://assets/intro/mare/4.png" id="mar_4"]
+[ext_resource type="Texture2D" uid="uid://c1j676f4e3jee" path="res://assets/intro/mare/5.png" id="mar_5"]
+[ext_resource type="Texture2D" uid="uid://cpa3smpiaeyov" path="res://assets/intro/mare/6.png" id="mar_6"]
+[ext_resource type="Texture2D" uid="uid://c8dfafrj5xhi3" path="res://assets/intro/mare/7.png" id="mar_7"]
+[ext_resource type="Texture2D" uid="uid://dcvqfbc5pvtvp" path="res://assets/intro/mare/8.png" id="mar_8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mar"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("mar_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("mar_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("mar_3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("mar_4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("mar_5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("mar_6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("mar_7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("mar_8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cepa"]
 bg_color = Color(0.83483535, 0.99999994, 0.99869734, 0.27450982)
@@ -41,50 +69,57 @@ corner_radius_top_right = 7
 corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0iiu"]
+atlas = ExtResource("3_w5vo1")
+region = Rect2(0, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0v57"]
+atlas = ExtResource("3_w5vo1")
+region = Rect2(64, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibys7"]
+atlas = ExtResource("3_w5vo1")
+region = Rect2(128, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhnjd"]
+atlas = ExtResource("3_w5vo1")
+region = Rect2(192, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rphdl"]
+atlas = ExtResource("3_w5vo1")
+region = Rect2(256, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu2le"]
+atlas = ExtResource("3_w5vo1")
+region = Rect2(320, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfnah"]
+atlas = ExtResource("3_w5vo1")
+region = Rect2(384, 256, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_b3ibb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_8cepa")
+"texture": SubResource("AtlasTexture_b0iiu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_xilaq")
+"texture": SubResource("AtlasTexture_l0v57")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_hm8gk")
+"texture": SubResource("AtlasTexture_ibys7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_i74ts")
+"texture": SubResource("AtlasTexture_hhnjd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_eq3wk")
+"texture": SubResource("AtlasTexture_rphdl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_3a6fh")
+"texture": SubResource("AtlasTexture_qu2le")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_cy24k")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_llv81")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_0blxr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_y8hhg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_ejvjp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_u4gtx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_y58ry")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_533wb")
+"texture": SubResource("AtlasTexture_gfnah")
 }],
 "loop": true,
 "name": &"default",
@@ -94,6 +129,12 @@ animations = [{
 [node name="TelaSucesso" type="CanvasLayer" unique_id=1654571954]
 process_mode = 3
 script = ExtResource("1_q38wc")
+
+[node name="FundoFinal" type="AnimatedSprite2D" parent="." unique_id=1600500001]
+visible = false
+position = Vector2(576, 324)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_mar")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=841198963]
 anchors_preset = 15
@@ -106,9 +147,9 @@ color = Color(0.2901961, 0.6, 0.7490196, 1)
 [node name="botaoProximo" type="Button" parent="ColorRect" unique_id=651089051]
 layout_mode = 0
 offset_left = 360.0
-offset_top = 427.0
+offset_top = 394.0
 offset_right = 560.0
-offset_bottom = 469.0
+offset_bottom = 436.0
 theme_override_fonts/font = ExtResource("16_ytplg")
 theme_override_styles/normal = SubResource("StyleBoxFlat_8cepa")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_xilaq")
@@ -118,30 +159,43 @@ text = "Próxima fase"
 [node name="botaoMenu" type="Button" parent="ColorRect" unique_id=651089052]
 layout_mode = 0
 offset_left = 600.0
-offset_top = 427.0
-offset_right = 757.0
-offset_bottom = 469.0
+offset_top = 394.0
+offset_right = 800.0
+offset_bottom = 436.0
 theme_override_fonts/font = ExtResource("16_ytplg")
 theme_override_styles/normal = SubResource("StyleBoxFlat_8cepa")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_xilaq")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hm8gk")
 text = "Voltar ao menu"
 
+[node name="botaoSair" type="Button" parent="ColorRect" unique_id=1600500002]
+visible = false
+layout_mode = 0
+offset_left = 360.0
+offset_top = 394.0
+offset_right = 560.0
+offset_bottom = 436.0
+theme_override_fonts/font = ExtResource("16_ytplg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8cepa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xilaq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hm8gk")
+text = "Sair"
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1922601617]
-position = Vector2(578, 552)
+position = Vector2(574.00006, 569)
+scale = Vector2(2.4359996, 2.4359996)
 sprite_frames = SubResource("SpriteFrames_b3ibb")
 autoplay = "default"
-frame = 9
-frame_progress = 0.09246797
+frame_progress = 0.67099935
 
 [node name="Label" type="Label" parent="." unique_id=488352108]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -421.0
-offset_top = 62.0
+offset_top = 107.0
 offset_right = 436.0
-offset_bottom = 200.0
+offset_bottom = 245.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -154,9 +208,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -507.0
-offset_top = 212.0
+offset_top = 257.0
 offset_right = 498.0
-offset_bottom = 272.0
+offset_bottom = 317.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -165,22 +219,30 @@ theme_override_font_sizes/font_size = 44
 text = "fase concluída com sucesso!"
 
 [node name="Label3" type="Label" parent="." unique_id=323359836]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -265.5
-offset_top = -15.0
-offset_right = 265.5
-offset_bottom = 15.0
+offset_left = -490.0
+offset_top = -4.0
+offset_right = 490.0
+offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("16_ytplg")
-theme_override_font_sizes/font_size = 22
-text = "próxima fase em andamento..."
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=234930023]
+stream = ExtResource("12_7wems")
+bus = &"Musica"
 
 [connection signal="pressed" from="ColorRect/botaoProximo" to="." method="_on_botao_proximo_pressed"]
 [connection signal="pressed" from="ColorRect/botaoMenu" to="." method="_on_botao_menu_pressed"]
+[connection signal="pressed" from="ColorRect/botaoSair" to="." method="_on_botao_sair_pressed"]

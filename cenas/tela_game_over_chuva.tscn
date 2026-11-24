@@ -1,7 +1,84 @@
-[gd_scene load_steps=5 format=3 uid="uid://goverchuva01"]
+[gd_scene format=3 uid="uid://goverchuva01"]
 
 [ext_resource type="Script" uid="uid://dtvc2y4uhmefn" path="res://cenas/tela_game_over.gd" id="1"]
 [ext_resource type="FontFile" uid="uid://b1u8sqsvpx4l1" path="res://menu/joystix monospace.otf" id="2"]
+[ext_resource type="Texture2D" uid="uid://cu4ur5c8mqw2b" path="res://assets/telas/game-over2.png" id="2_hndlb"]
+[ext_resource type="Texture2D" uid="uid://cyntqegqiqfkm" path="res://assets/chorume/1.png" id="3_ra3xx"]
+[ext_resource type="Texture2D" uid="uid://xncomydrvqdj" path="res://assets/chorume/2.png" id="4_n204x"]
+[ext_resource type="Texture2D" uid="uid://cj3764b5stqp2" path="res://assets/chorume/3.png" id="5_22l67"]
+[ext_resource type="Texture2D" uid="uid://hfxgohs1hg2" path="res://assets/chorume/4.png" id="6_uwjlw"]
+[ext_resource type="Texture2D" uid="uid://jme5bxe1t3qu" path="res://assets/chorume/5.png" id="7_vc4pl"]
+[ext_resource type="Texture2D" uid="uid://dkvmjqlrjksm4" path="res://assets/chorume/6.png" id="8_53x8n"]
+[ext_resource type="Texture2D" uid="uid://b3nysav2if2tw" path="res://assets/chorume/7.png" id="9_kbyky"]
+[ext_resource type="Texture2D" uid="uid://buplxajmlngrv" path="res://assets/chorume/8.png" id="10_1mryf"]
+[ext_resource type="Texture2D" uid="uid://bauiy84mrgrgg" path="res://assets/chorume/9.png" id="11_vql8t"]
+[ext_resource type="Texture2D" uid="uid://c3rtn6i7gh121" path="res://assets/chorume/10.png" id="12_kkepr"]
+[ext_resource type="AudioStream" uid="uid://c5m7awcwl30r" path="res://assets/som/game over.mp3" id="14_ra3xx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0rwcb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ra3xx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_n204x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_22l67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uwjlw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vc4pl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_53x8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kbyky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1mryf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vql8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kkepr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vql8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1mryf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kbyky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_53x8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vc4pl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uwjlw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_22l67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_n204x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ra3xx")
+}],
+"loop": true,
+"name": &"chorum",
+"speed": 7.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="sb_press"]
 bg_color = Color(0.146, 0.146, 0.146, 1)
@@ -9,11 +86,11 @@ bg_color = Color(0.146, 0.146, 0.146, 1)
 [sub_resource type="StyleBoxFlat" id="sb_hover"]
 bg_color = Color(0.0808, 0.0808, 0.0808, 1)
 
-[node name="TelaGameOver" type="CanvasLayer"]
+[node name="TelaGameOver" type="CanvasLayer" unique_id=1252735154]
 process_mode = 3
 script = ExtResource("1")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1934921121]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -21,7 +98,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.04, 0.09, 0.18, 1)
 
-[node name="Titulo" type="Label" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect" unique_id=64741052]
+position = Vector2(578, 326)
+texture = ExtResource("2_hndlb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect" unique_id=191580857]
+position = Vector2(566, 551)
+sprite_frames = SubResource("SpriteFrames_0rwcb")
+animation = &"chorum"
+autoplay = "chorum"
+frame = 12
+frame_progress = 0.5194428
+
+[node name="Titulo" type="Label" parent="." unique_id=1097018543]
+visible = false
 offset_left = 176.0
 offset_top = 70.0
 offset_right = 976.0
@@ -33,37 +123,45 @@ text = "GAME OVER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Frase" type="Label" parent="."]
+[node name="Frase" type="Label" parent="." unique_id=2044815430]
+visible = false
 offset_left = 150.0
 offset_top = 230.0
 offset_right = 1002.0
 offset_bottom = 480.0
 theme_override_colors/font_color = Color(0.82, 0.95, 1, 1)
 theme_override_font_sizes/font_size = 28
-text = "chocante.... cuidado!\n\nA água salgada é um excelente condutor devido à sua alta concentração de íons de sódio e cloreto, enquanto a água doce possui condutividade menor."
+text = "chocante.... cuidado!
+
+A água salgada é um excelente condutor devido à sua alta concentração de íons de sódio e cloreto, enquanto a água doce possui condutividade menor."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="tentar" type="Button" parent="."]
-offset_left = 327.0
-offset_top = 520.0
-offset_right = 547.0
-offset_bottom = 566.0
+[node name="tentar" type="Button" parent="." unique_id=1728454279]
+offset_left = 337.0
+offset_top = 388.0
+offset_right = 557.0
+offset_bottom = 434.0
 theme_override_fonts/font = ExtResource("2")
-theme_override_styles/hover = SubResource("sb_hover")
 theme_override_styles/pressed = SubResource("sb_press")
+theme_override_styles/hover = SubResource("sb_hover")
 text = "Tentar novamente"
 
-[node name="sair" type="Button" parent="."]
-offset_left = 619.0
-offset_top = 520.0
-offset_right = 770.0
-offset_bottom = 566.0
+[node name="sair" type="Button" parent="." unique_id=1390300096]
+offset_left = 629.0
+offset_top = 388.0
+offset_right = 780.0
+offset_bottom = 434.0
 theme_override_fonts/font = ExtResource("2")
-theme_override_styles/hover = SubResource("sb_hover")
 theme_override_styles/pressed = SubResource("sb_press")
+theme_override_styles/hover = SubResource("sb_hover")
 text = "sair"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1558606394]
+stream = ExtResource("14_ra3xx")
+autoplay = true
+bus = &"Musica"
 
 [connection signal="pressed" from="tentar" to="." method="_on_tentar_pressed"]
 [connection signal="pressed" from="sair" to="." method="_on_sair_pressed"]

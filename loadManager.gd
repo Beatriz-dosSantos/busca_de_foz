@@ -10,8 +10,12 @@ const useSubThreads: bool = true
 var can_change_scene: bool = false 
 var is_loading: bool = false
 var currentLoadingScreen: Node 
+var camadaLoading: CanvasLayer
 
 signal progressChanged(progress)
+
+func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func loadScene(scene_path: String):
 	if is_loading:
@@ -21,7 +25,11 @@ func loadScene(scene_path: String):
 	scenePath = scene_path
 	
 	currentLoadingScreen = loadScreen.instantiate()
-	get_tree().get_root().add_child(currentLoadingScreen)
+	camadaLoading = CanvasLayer.new()
+	camadaLoading.layer = 100
+	camadaLoading.process_mode = Node.PROCESS_MODE_ALWAYS
+	camadaLoading.add_child(currentLoadingScreen)
+	get_tree().get_root().add_child(camadaLoading)
 	
 	progressChanged.connect(currentLoadingScreen.updateProgressBar)
 	
@@ -54,9 +62,12 @@ func _process(_delta):
 			set_process(false)
 			loadedResource = ResourceLoader.load_threaded_get(scenePath)
 			
-			if currentLoadingScreen != null:
-				currentLoadingScreen.queue_free()
+			if camadaLoading != null:
+				camadaLoading.queue_free()
+				camadaLoading = null
+				currentLoadingScreen = null
 				
 			is_loading = false 
 			
+			get_tree().paused = false
 			get_tree().change_scene_to_packed(loadedResource)

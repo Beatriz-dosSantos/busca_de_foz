@@ -5,8 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://i1jsvm3kpjy4" path="res://assets/barra de vida/termometro poluicao1.png" id="3_xojfc"]
 [ext_resource type="Texture2D" uid="uid://b81ebuk3afu5h" path="res://assets/barra de vida/termometro poluicao cheio.png" id="4_15dsx"]
 [ext_resource type="FontFile" uid="uid://b1u8sqsvpx4l1" path="res://menu/joystix monospace.otf" id="5_15dsx"]
-[ext_resource type="Texture2D" uid="uid://5wm08pcl65ou" path="res://assets/barra de vida/item vazio.png" id="6_4y2i1"]
-[ext_resource type="Texture2D" uid="uid://belnh11dpvmei" path="res://assets/barra de vida/item cheio.png" id="7_ogt8j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4y2i1"]
 atlas = ExtResource("1_8or6t")
@@ -31,6 +29,46 @@ region = Rect2(512, 320, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tckef"]
 atlas = ExtResource("1_8or6t")
 region = Rect2(576, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qyyh"]
+atlas = ExtResource("1_8or6t")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kkam"]
+atlas = ExtResource("1_8or6t")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqemb"]
+atlas = ExtResource("1_8or6t")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of225"]
+atlas = ExtResource("1_8or6t")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vo43"]
+atlas = ExtResource("1_8or6t")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3f53"]
+atlas = ExtResource("1_8or6t")
+region = Rect2(320, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyxja"]
+atlas = ExtResource("1_8or6t")
+region = Rect2(384, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e3xa"]
+atlas = ExtResource("1_8or6t")
+region = Rect2(448, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulfow"]
+atlas = ExtResource("1_8or6t")
+region = Rect2(512, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddxaq"]
+atlas = ExtResource("1_8or6t")
+region = Rect2(576, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uk4ck"]
 atlas = ExtResource("1_8or6t")
@@ -154,6 +192,41 @@ animations = [{
 "speed": 10.0
 }, {
 "frames": [{
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_0qyyh")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_3kkam")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_iqemb")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_of225")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_8vo43")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_o3f53")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_iyxja")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_5e3xa")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_ulfow")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_ddxaq")
+}],
+"loop": false,
+"name": &"machucou",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uk4ck")
 }, {
@@ -257,9 +330,9 @@ script = ExtResource("1_unwft")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flip" unique_id=1023913317]
 position = Vector2(2, -33)
 sprite_frames = SubResource("SpriteFrames_4y2i1")
-animation = &"morte"
+animation = &"machucou"
 autoplay = "parada"
-frame = 8
+frame = 9
 frame_progress = 1.0
 
 [node name="onda_pos" type="Marker2D" parent="Flip" unique_id=1362576964]
@@ -272,9 +345,9 @@ shape = SubResource("CircleShape2D_ogt8j")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=479441656]
 
 [node name="ProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=466950493]
-offset_left = 7.0
+offset_left = 22.0
 offset_top = 7.0
-offset_right = 48.0
+offset_right = 63.0
 offset_bottom = 112.42856
 max_value = 10.0
 fill_mode = 3
@@ -283,36 +356,21 @@ texture_under = ExtResource("3_xojfc")
 texture_progress = ExtResource("4_15dsx")
 
 [node name="TextoVida" type="Label" parent="CanvasLayer" unique_id=1986475392]
-offset_left = 49.0
+offset_left = 64.0
 offset_top = 7.0
-offset_right = 89.0
+offset_right = 104.0
 offset_bottom = 30.0
 theme_override_fonts/font = ExtResource("5_15dsx")
 theme_override_font_sizes/font_size = 20
 
-[node name="BarraCarga" type="TextureProgressBar" parent="CanvasLayer" unique_id=1342174564]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = -49.0
-offset_right = 89.25
-offset_bottom = -21.0
-grow_vertical = 0
-nine_patch_stretch = true
-texture_under = ExtResource("6_4y2i1")
-texture_progress = ExtResource("7_ogt8j")
-
-[node name="IconeZ" type="Label" parent="CanvasLayer" unique_id=1256831642]
-visible = false
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 14.0
-offset_top = -76.0
-offset_right = 81.0
-offset_bottom = -52.0
-grow_vertical = 0
+[node name="TextoBarra" type="Label" parent="CanvasLayer" unique_id=1600300001]
+offset_left = 4.0
+offset_top = 112.0
+offset_right = 109.0
+offset_bottom = 126.0
+rotation = -1.5707964
 theme_override_fonts/font = ExtResource("5_15dsx")
-theme_override_font_sizes/font_size = 20
-text = "[Z]!"
+theme_override_font_sizes/font_size = 10
+text = "TEMPERATURA"
+horizontal_alignment = 1
+vertical_alignment = 1

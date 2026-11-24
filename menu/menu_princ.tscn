@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://kd4y04j3mq8p" path="res://assets/loading/2.png" id="3_50jp4"]
 [ext_resource type="Texture2D" uid="uid://cpfop7rywghir" path="res://menu/titulo.png" id="3_bqjfk"]
 [ext_resource type="Texture2D" uid="uid://bb1213ava1aib" path="res://assets/loading/3.png" id="4_7u7eo"]
-[ext_resource type="AudioStream" uid="uid://tsoc5j0i516i" path="res://menu/Rainy Day.wav" id="4_bqjfk"]
 [ext_resource type="Script" uid="uid://cuefkpmqn7fu4" path="res://menu/audio_control.gd" id="5_ok2uw"]
 [ext_resource type="Texture2D" uid="uid://u8xhgw7ie31g" path="res://assets/loading/4.png" id="5_xkpp6"]
 [ext_resource type="Texture2D" uid="uid://nn2qo36c1i8d" path="res://assets/loading/5.png" id="6_8jtpl"]
@@ -20,10 +19,6 @@ script/source = "extends Control
 @onready var main_buttons: VBoxContainer = $MainButtons
 @onready var opcoes: Panel = $Opcoes
 
-# Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-#pass # Replace with function body.
-
 func _process(delta):
 	pass
 
@@ -31,35 +26,36 @@ func _ready():
 	main_buttons.visible = true
 	opcoes.visible = false
 	$Panel/menuback.play(\"main_bkg\")
+	MusicaMenu.tocar()
+	if OS.get_name() == \"iOS\":
+		$MainButtons/exit.visible = false
 
 func _on_settings_pressed():
 	main_buttons.visible = false
 	opcoes.visible = true
 
-
 func _on_exit_pressed() -> void:
 	get_tree().quit()
 
-
 func _on_start_pressed() -> void:
-	var gs = get_node_or_null(\"/root/GameState\")
-	if gs:
-		gs.iniciar_jogo()
+	var cena_salva := GameState.carregar_progresso()
 	await get_tree().create_timer(0.1).timeout
-	LoadManager.loadScene(\"res://cenas/fase1.tscn\")
-
+	if cena_salva != \"\":
+		MusicaMenu.parar(1.0)
+		LoadManager.loadScene(cena_salva)
+	else:
+		GameState.iniciar_jogo()
+		LoadManager.loadScene(\"res://cenas/intro.tscn\")
 
 func _on_exit_options_pressed():
 	main_buttons.visible = true
 	opcoes.visible = false
 
-
 func _on_h_slider_value_changed(value: float) -> void:
-	pass # Replace with function body.
-
+	pass
 
 func _on_slider_sfx_value_changed(value: float) -> void:
-	pass # Replace with function body.
+	pass
 "
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dw1xh"]
@@ -206,11 +202,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_p5uh4")
 theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_ei3st")
 text = "Sair"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=888634735]
-stream = ExtResource("4_bqjfk")
-autoplay = true
-bus = &"Musica"
-
 [node name="Opcoes" type="Panel" parent="." unique_id=1154439808]
 layout_mode = 1
 anchors_preset = 8
@@ -245,14 +236,14 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
-offset_top = -43.0
-offset_right = 107.0
+offset_top = -58.0
+offset_right = 150.0
 offset_bottom = -8.0
 grow_vertical = 0
 size_flags_vertical = 7
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_i4e4c")
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxFlat_ei3st")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_bqjfk")
 theme_override_styles/hover = SubResource("StyleBoxFlat_p5uh4")
@@ -277,9 +268,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -7.0
-offset_top = -55.0
+offset_top = -62.0
 offset_right = 140.0
-offset_bottom = -34.0
+offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_bqjfk")
@@ -308,9 +299,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -7.0
-offset_top = -16.0
+offset_top = -20.0
 offset_right = 140.0
-offset_bottom = 5.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_bqjfk")

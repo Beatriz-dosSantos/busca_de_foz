@@ -1,20 +1,147 @@
-[gd_scene load_steps=4 format=3 uid="uid://fozprojsol1"]
+[gd_scene format=3 uid="uid://fo0projsol1"]
 
-[ext_resource type="Script" uid="uid://xpgq2qsp68w2" path="res://cenas/projetil.gd" id="1_proj"]
-[ext_resource type="Texture2D" uid="uid://fo0raiosol1" path="res://assets/gerados/raio_sol.png" id="2_tex"]
+[ext_resource type="Script" uid="uid://b83pmgo5utfbt" path="res://cenas/projetil_sol.gd" id="1_proj"]
+[ext_resource type="Texture2D" uid="uid://dny2jqibsdv7p" path="res://assets/inimigo sol/Thunder splash w blur.png" id="3_0lrcu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sol"]
 radius = 13.0
 
-[node name="projetil" type="Area2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_klw02"]
+atlas = ExtResource("3_0lrcu")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5thdh"]
+atlas = ExtResource("3_0lrcu")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6wpo"]
+atlas = ExtResource("3_0lrcu")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2t15"]
+atlas = ExtResource("3_0lrcu")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m3i1"]
+atlas = ExtResource("3_0lrcu")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_is5ia"]
+atlas = ExtResource("3_0lrcu")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gntrr"]
+atlas = ExtResource("3_0lrcu")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqp2w"]
+atlas = ExtResource("3_0lrcu")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sq816"]
+atlas = ExtResource("3_0lrcu")
+region = Rect2(384, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4qw5"]
+atlas = ExtResource("3_0lrcu")
+region = Rect2(432, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2rje"]
+atlas = ExtResource("3_0lrcu")
+region = Rect2(480, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyvtu"]
+atlas = ExtResource("3_0lrcu")
+region = Rect2(528, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2yka"]
+atlas = ExtResource("3_0lrcu")
+region = Rect2(576, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfi3l"]
+atlas = ExtResource("3_0lrcu")
+region = Rect2(624, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vjss5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klw02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5thdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6wpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2t15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m3i1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_is5ia")
+}],
+"loop": false,
+"name": &"esquentar",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gntrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqp2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sq816")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4qw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2rje")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyvtu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2yka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfi3l")
+}],
+"loop": false,
+"name": &"estourar",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2t15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m3i1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_is5ia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m3i1")
+}],
+"loop": true,
+"name": &"voando",
+"speed": 10.0
+}]
+
+[node name="projetil" type="Area2D" unique_id=890280123]
 script = ExtResource("1_proj")
 velocidade = 210.0
-dano = 10
+dano = 15
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_tex")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1205671991]
 shape = SubResource("CircleShape2D_sol")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=345408565]
+sprite_frames = SubResource("SpriteFrames_vjss5")
+animation = &"esquentar"

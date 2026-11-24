@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://b1u8sqsvpx4l1" path="res://menu/joystix monospace.otf" id="2_ecnfh"]
 
 [node name="MenuPause" type="CanvasLayer" unique_id=1890855192]
+layer = 10
 process_mode = 3
 script = ExtResource("1_xax3q")
 
@@ -21,13 +22,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -57.0
-offset_top = -15.5
-offset_right = 57.0
-offset_bottom = 15.5
+offset_left = -160.0
+offset_top = -35.0
+offset_right = 160.0
+offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_ecnfh")
+theme_override_font_sizes/font_size = 26
 text = "voltar ao jogo"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

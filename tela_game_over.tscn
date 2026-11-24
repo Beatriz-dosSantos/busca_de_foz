@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://kwc3m78u1wtl"]
 
 [ext_resource type="PackedScene" uid="uid://db7or7ftp85lx" path="res://cenas/tela_game_over.tscn" id="1_o4t8j"]
+[ext_resource type="Texture2D" uid="uid://d4fby56x2b040" path="res://assets/telas/game-over1.png" id="2_lbivt"]
 
 [node name="TelaGameOver" unique_id=1561170948 instance=ExtResource("1_o4t8j")]
+
+[node name="Sprite2D" parent="." index="1" unique_id=296083419]
+texture = ExtResource("2_lbivt")
